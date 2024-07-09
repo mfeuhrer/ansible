@@ -1,0 +1,151 @@
+---
+# a lot of it came from here: https://pastebin.com/rPiqt8q6
+- hosts: apt
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Create Ansible User
+    ansible.builtin.user:
+      name: ansible
+      groups: sudo
+      append: true
+      create_home: true
+      comment: "Ansible Management Account"
+      expires: -1
+  - name: Setup Sudo Access for Ansible User
+    ansible.builtin.copy:
+      dest: /etc/sudoers.d/ansible
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      validate: /usr/sbin/visudo -cf %s
+  - name: Create Ansible SSH Key Directory
+    file:
+      path: /home/ansible/.ssh
+      state: directory
+      owner: ansible
+      group: ansible
+  - name: Create Ansible SSH Key
+    copy: 
+      src: /home/setup/.ssh/id_rsa.pub 
+      dest: /home/ansible/.ssh/authorized_keys
+      owner: ansible
+      group: ansible
+  - name: Install Required Packages
+    apt:
+      name: 
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg2
+        - software-properties-common
+        - ufw
+        - snmpd
+        - htop
+      state: latest
+      update_cache: true
+      autoclean: true
+      autoremove: true
+  - name: Remove Unwanted Packages
+    apt:
+      name:
+        - netadata
+        - wazuh-agent
+        - landscape-client
+      state: absent
+      autoclean: true
+      autoremove: true
+  - name: Configure OS Update SNMP Module
+    get_url:
+      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate
+      dest: /etc/snmp/osupdate
+      mode: 0755
+      # 755 allows all to execute
+  - name: Configure DistroWatch SNMP Module
+    get_url:
+      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+      dest: /usr/bin/distro
+      mode: 0755
+  - name: Configure Systemd SNMP Module
+    get_url:
+      url: https://github.com/librenms/librenms-agent/raw/master/snmp/systemd.py
+      dest: /etc/snmp/systemd.py
+      mode: 755
+- hosts: containerhosts
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Install Required Packages for Docker Monitoring
+    apt:
+      name: 
+        - python3
+        - python3-pip
+        - python3-dateutil
+      state: latest
+      update_cache: true
+      autoclean: true
+      autoremove: true
+  - name: Configure Docker SNMP Module
+    get_url:
+      url: https://github.com/librenms/librenms-agent/raw/master/snmp/docker-stats.py
+      dest: /etc/snmp/docker-stats.py
+      mode: 0755
+  - name: Add SNMP User Access to Docker Group
+    ansible.builtin.user:
+      name: Debian-snmp
+      groups: docker
+      append: true
+- hosts: containerhosts:!vps
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Configure SNMP
+    template: src=./snmpd.conf.d/docker.conf dest=/etc/snmp/snmpd.conf
+    register: snmp_config_updated
+  - name: Restart SNMP
+    service:
+      name: snmpd
+      state: restarted
+    when: snmp_config_updated.changed
+- hosts: vps:!containerhosts
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Configure SNMP
+    template: src=./snmpd.conf.d/vps.conf dest=/etc/snmp/snmpd.conf
+    register: snmp_config_updated
+  - name: Restart SNMP
+    service:
+      name: snmpd
+      state: restarted
+    when: snmp_config_updated.changed
+- hosts: vps:&containerhosts
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Configure SNMP
+    template: src=./snmpd.conf.d/vps-docker.conf dest=/etc/snmp/snmpd.conf
+    register: snmp_config_updated
+  - name: Restart SNMP
+    service:
+      name: snmpd
+      state: restarted
+    when: snmp_config_updated.changed
+- hosts:
+  - apt:!vps
+  - apt:!containerhosts
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Configure SNMP
+    template: src=./snmpd.conf.d/snmpd.conf dest=/etc/snmp/snmpd.conf
+    register: snmp_config_updated
+  - name: Restart SNMP
+    service:
+      name: snmpd
+      state: restarted
+    when: snmp_config_updated.changed

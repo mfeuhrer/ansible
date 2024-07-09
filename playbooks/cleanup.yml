@@ -1,0 +1,14 @@
+---
+- hosts: apt
+  become: yes
+  tasks:
+  - name: disable wazuh agent service
+    service:
+      name: wazuh-agent
+      enabled: false
+      state: stopped
+  - name: disable netdata agent service
+    service:
+      name: netdata
+      enabled: false
+      state: stopped
