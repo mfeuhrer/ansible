@@ -1,6 +1,6 @@
 ---
 # a lot of it came from here: https://pastebin.com/rPiqt8q6
-- hosts: apt
+- hosts: linux
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
@@ -24,19 +24,35 @@
       state: directory
       owner: ansible
       group: ansible
-  - name: Create Ansible SSH Key
+  - name: Configure Ansible SSH Key
     copy: 
       src: /home/setup/.ssh/id_rsa.pub 
       dest: /home/ansible/.ssh/authorized_keys
       owner: ansible
       group: ansible
+  - name: Configure OS Update SNMP Module
+    get_url:
+      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate
+      dest: /etc/snmp/osupdate
+      mode: 0755
+      # 755 allows all to execute
+  - name: Configure DistroWatch SNMP Module
+    get_url:
+      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
+      dest: /usr/bin/distro
+      mode: 0755
+- hosts: apt
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
   - name: Install Required Packages
     apt:
       name: 
         - apt-transport-https
         - ca-certificates
         - curl
-        - gnupg2
+        - gnupg
         - software-properties-common
         - ufw
         - snmpd
@@ -54,22 +70,15 @@
       state: absent
       autoclean: true
       autoremove: true
-  - name: Configure OS Update SNMP Module
-    get_url:
-      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate
-      dest: /etc/snmp/osupdate
-      mode: 0755
-      # 755 allows all to execute
-  - name: Configure DistroWatch SNMP Module
-    get_url:
-      url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/distro
-      dest: /usr/bin/distro
-      mode: 0755
   - name: Configure Systemd SNMP Module
-    get_url:
-      url: https://github.com/librenms/librenms-agent/raw/master/snmp/systemd.py
+    copy:
+      src: ./resources/systemd.py
       dest: /etc/snmp/systemd.py
-      mode: 755
+      mode: 0755
+  - name: Configure Systemd Extended SNMP Module 
+    copy:
+      src: ./resources/systemd.json
+      dest: /etc/snmp/systemd.json
 - hosts: containerhosts
   become: yes
   vars:
@@ -95,6 +104,11 @@
       name: Debian-snmp
       groups: docker
       append: true
+  - name: Configure ufw-docker Module
+    get_url: 
+      url: https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
+      dest: /usr/local/bin/ufw-docker
+      mode: 0755
 - hosts: containerhosts:!vps
   become: yes
   vars:
@@ -135,8 +149,8 @@
       state: restarted
     when: snmp_config_updated.changed
 - hosts:
-  - apt:!vps
-  - apt:!containerhosts
+  - linux:!vps
+  - linux:!containerhosts
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name

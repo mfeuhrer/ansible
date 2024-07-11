@@ -1,0 +1,4 @@
+{
+    "systemctl_cmd": "/usr/bin/systemctl",
+    "include_inactive_units": "True"
+}
