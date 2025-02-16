@@ -5,31 +5,10 @@
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
   tasks:
-  - name: Create Ansible User
-    ansible.builtin.user:
-      name: ansible
-      groups: sudo
-      append: true
-      create_home: true
-      comment: "Ansible Management Account"
-      expires: -1
-  - name: Setup Sudo Access for Ansible User
-    ansible.builtin.copy:
-      dest: /etc/sudoers.d/ansible
-      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
-      validate: /usr/sbin/visudo -cf %s
-  - name: Create Ansible SSH Key Directory
-    file:
-      path: /home/ansible/.ssh
+  - name: Create SNMP Config Folder
+    ansible.builtin.file:
+      path: /etc/snmp
       state: directory
-      owner: ansible
-      group: ansible
-  - name: Configure Ansible SSH Key
-    copy: 
-      src: /home/setup/.ssh/id_rsa.pub 
-      dest: /home/ansible/.ssh/authorized_keys
-      owner: ansible
-      group: ansible
   - name: Configure OS Update SNMP Module
     get_url:
       url: https://raw.githubusercontent.com/librenms/librenms-agent/master/snmp/osupdate
@@ -57,6 +36,7 @@
         - ufw
         - snmpd
         - htop
+        - git
       state: latest
       update_cache: true
       autoclean: true

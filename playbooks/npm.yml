@@ -1,0 +1,6 @@
+---
+- hosts: npm
+  becoms: yes
+  tasks:
+    - name: Reset ufw-docker firewall for NPM
+    

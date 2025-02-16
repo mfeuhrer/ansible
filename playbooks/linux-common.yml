@@ -1,0 +1,54 @@
+# a lot of it came from here: https://pastebin.com/rPiqt8q6
+- hosts: linux
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Configure Hostname
+    hostname:
+      name: "{{ inventory_hostname }}"
+  - name: Create Ansible User
+    ansible.builtin.user:
+      name: ansible
+      groups: sudo
+      append: true
+      create_home: true
+      comment: "Ansible Management Account"
+      expires: -1
+  - name: Setup Sudo Access for Ansible User
+    ansible.builtin.copy:
+      dest: /etc/sudoers.d/ansible
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
+      validate: /usr/sbin/visudo -cf %s
+  - name: Create Ansible SSH Key Directory
+    file:
+      path: /home/ansible/.ssh
+      state: directory
+      owner: ansible
+      group: ansible
+  - name: Configure Ansible SSH Key
+    copy: 
+      src: /home/setup/.ssh/id_rsa.pub 
+      dest: /home/ansible/.ssh/authorized_keys
+      owner: ansible
+      group: ansible
+  - name: Create Warpgate User
+    ansible.builtin.user:
+      name: warpgate
+      groups: users
+      append: true
+      create_home: true
+      comment: "Warpgate Jump User"
+      expires: -1
+  - name: Create Warpgate SSH Key Directory
+    file:
+      path: /home/warpgate/.ssh
+      state: directory
+      owner: warpgate
+      group: warpgate
+  - name: Configure Warpgate SSH Key
+    copy: 
+      src: ./resources/warpgate.pub 
+      dest: /home/warpgate/.ssh/authorized_keys
+      owner: ansible
+      group: ansible
