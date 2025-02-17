@@ -52,76 +52,20 @@
       autoremove: true
   - name: Configure Systemd SNMP Module
     copy:
-      src: ./resources/systemd.py
+      src: ../resources/systemd.py
       dest: /etc/snmp/systemd.py
       mode: 0755
   - name: Configure Systemd Extended SNMP Module 
     copy:
-      src: ./resources/systemd.json
+      src: ../resources/systemd.json
       dest: /etc/snmp/systemd.json
-- hosts: containerhosts
-  become: yes
-  vars:
-    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
-  tasks:
-  - name: Install Required Packages for Docker Monitoring
-    apt:
-      name: 
-        - python3
-        - python3-pip
-        - python3-dateutil
-      state: latest
-      update_cache: true
-      autoclean: true
-      autoremove: true
-  - name: Configure Docker SNMP Module
-    get_url:
-      url: https://github.com/librenms/librenms-agent/raw/master/snmp/docker-stats.py
-      dest: /etc/snmp/docker-stats.py
-      mode: 0755
-  - name: Add SNMP User Access to Docker Group
-    ansible.builtin.user:
-      name: Debian-snmp
-      groups: docker
-      append: true
-  - name: Configure ufw-docker Module
-    get_url: 
-      url: https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
-      dest: /usr/local/bin/ufw-docker
-      mode: 0755
-- hosts: containerhosts:!vps
-  become: yes
-  vars:
-    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
-  tasks:
-  - name: Configure SNMP
-    template: src=./snmpd.conf.d/docker.conf dest=/etc/snmp/snmpd.conf
-    register: snmp_config_updated
-  - name: Restart SNMP
-    service:
-      name: snmpd
-      state: restarted
-    when: snmp_config_updated.changed
 - hosts: vps:!containerhosts
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
   tasks:
   - name: Configure SNMP
-    template: src=./snmpd.conf.d/vps.conf dest=/etc/snmp/snmpd.conf
-    register: snmp_config_updated
-  - name: Restart SNMP
-    service:
-      name: snmpd
-      state: restarted
-    when: snmp_config_updated.changed
-- hosts: vps:&containerhosts
-  become: yes
-  vars:
-    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
-  tasks:
-  - name: Configure SNMP
-    template: src=./snmpd.conf.d/vps-docker.conf dest=/etc/snmp/snmpd.conf
+    template: src=../resources/snmpd.conf.d/vps.conf dest=/etc/snmp/snmpd.conf
     register: snmp_config_updated
   - name: Restart SNMP
     service:
@@ -136,7 +80,7 @@
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
   tasks:
   - name: Configure SNMP
-    template: src=./snmpd.conf.d/snmpd.conf dest=/etc/snmp/snmpd.conf
+    template: src=../resources/snmpd.conf.d/snmpd.conf dest=/etc/snmp/snmpd.conf
     register: snmp_config_updated
   - name: Restart SNMP
     service:

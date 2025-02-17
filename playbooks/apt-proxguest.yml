@@ -1,0 +1,25 @@
+- hosts: proxmoxguest
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Install Required Packages for Optimal Proxmox Performance
+    apt:
+      name: 
+        - qemu-guest-agent
+      state: latest
+      update_cache: true
+      autoclean: true
+      autoremove: true
+  - name: Start QEMU Guest Services
+    service:
+      name: qemu-guest-agent
+      state: started
+      enabled: true
+  - name: Remove VMWare Tools
+    apt:
+      name:
+        - open-vm-tools
+      state: absent
+      autoclean: true
+      autoremove: true
