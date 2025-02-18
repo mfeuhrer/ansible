@@ -35,8 +35,6 @@ Files and templates used by the playbooks on the remote machines. Playbooks will
 
 4. Create an SSH keypair if you don't already have one[^1]
 
-[^1]: If you're me, you'll use the existing keypair. Conveniently the correct [id_rsa.pub](./resources/.ssh/id_rsa.pub) is already in this repo!
-
 		ssh-keygen
 
 	Copy it to the resources folder:
@@ -58,3 +56,6 @@ Files and templates used by the playbooks on the remote machines. Playbooks will
 7. You are now ready to run playbooks. Try the following command to validate connectivity to your hosts.
 
 		ansible all -m ping
+
+
+[^1]: If you're me, you'll use the existing keypair. Conveniently the correct [id_rsa.pub](./resources/.ssh/id_rsa.pub) is already in this repo!
