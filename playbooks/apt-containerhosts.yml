@@ -2,53 +2,89 @@
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  
   tasks:
-  - name: Install Required Packages for Docker Monitoring
-    apt:
-      name: 
-        - python3
-        - python3-pip
-        - python3-dateutil
-      state: latest
-      update_cache: true
-      autoclean: true
-      autoremove: true
-  - name: Configure Docker SNMP Module
-    get_url:
-      url: https://github.com/librenms/librenms-agent/raw/master/snmp/docker-stats.py
-      dest: /etc/snmp/docker-stats.py
-      mode: 0755
-  - name: Add SNMP User Access to Docker Group
-    ansible.builtin.user:
-      name: Debian-snmp
-      groups: docker
-      append: true
-  - name: Configure ufw-docker Module
-    get_url: 
-      url: https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
-      dest: /usr/local/bin/ufw-docker
-      mode: 0755
+
+    - name: Add Docker GPG apt Key (Ubuntu)
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Add Docker Repository (Ubuntu)
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu {{ ansible_facts['lsb']['codename'] }} stable
+        state: present
+      when: ansible_facts['distribution'] == "Ubuntu"
+
+    - name: Add Docker GPG apt Key (Debian)
+      apt_key:
+        url: https://download.docker.com/linux/debian/gpg
+        state: present
+      when: ansible_facts['distribution'] == "Debian"
+
+    - name: Add Docker Repository (Debian)
+      apt_repository:
+        repo: deb https://download.docker.com/linux/debian {{ ansible_facts['lsb']['codename'] }} stable
+        state: present
+      when: ansible_facts['distribution'] == "Debian"
+
+    - name: Install Required Packages for Docker
+      apt:
+        name: 
+          - python3
+          - python3-pip
+          - python3-dateutil
+          - python3-docker
+          - docker-ce
+        state: latest
+        update_cache: true
+        autoclean: true
+        autoremove: true
+
+    - name: Configure Docker SNMP Module
+      get_url:
+        url: https://github.com/librenms/librenms-agent/raw/master/snmp/docker-stats.py
+        dest: /etc/snmp/docker-stats.py
+        mode: 0755
+    - name: Add SNMP User Access to Docker Group
+      ansible.builtin.user:
+        name: Debian-snmp
+        groups: docker
+        append: true
+
+    - name: Configure ufw-docker Module
+      get_url: 
+        url: https://github.com/chaifeng/ufw-docker/raw/master/ufw-docker
+        dest: /usr/local/bin/ufw-docker
+        mode: 0755
+
 - hosts: containerhosts:!vps
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
   tasks:
+
   - name: Configure SNMP
     template: src=../resources/snmpd.conf.d/docker.conf dest=/etc/snmp/snmpd.conf
     register: snmp_config_updated
+
   - name: Restart SNMP
     service:
       name: snmpd
       state: restarted
     when: snmp_config_updated.changed
+
 - hosts: vps:&containerhosts
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
   tasks:
+
   - name: Configure SNMP
     template: src=../resources/snmpd.conf.d/vps-docker.conf dest=/etc/snmp/snmpd.conf
     register: snmp_config_updated
+
   - name: Restart SNMP
     service:
       name: snmpd

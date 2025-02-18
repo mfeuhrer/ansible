@@ -1,0 +1,15 @@
+- hosts: ans01.omicr0n.com
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+
+  tasks:
+    - name: Show facts available on the system
+      ansible.builtin.debug:
+        var: ansible_facts
+    
+    - name: Test Task
+      ansible.builtin.shell: echo {{ ansible_facts['lsb']['codename'] }} {{ ansible_facts['os_family']}}
+        # echo "only on Debian, derivatives, and later"
+        # - echo ansible_facts['lsb']['major_release']
+      when: ansible_facts['os_family'] == "Debian"
