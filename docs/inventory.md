@@ -88,3 +88,11 @@ Tags for specific software will install and manage that software on any endpoint
 Playbooks that target these groups should expect the software to be installed (or should be doing the installing).
 
 These groups are currently populated directly with hostnames.
+
+### `[alwayson]`
+
+Hosts defined under this group should indicate that reboots should not be triggered by ansible. 
+
+Mostly a trust thing. 
+
+Useful for [applying patches and controlling reboots](../playbooks/updates.yml).
