@@ -26,7 +26,7 @@ The apt tag is a group that contains valid Operating Systems that use apt as a p
 
 Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. 
 
-Useful for [installing packages and controlling repositories](playbooks/apt-common.yml). 
+Useful for [installing packages and controlling repositories](playbooks/apt-common.md). 
 
 Currently defined as:
 
@@ -93,8 +93,8 @@ These groups are currently populated directly with hostnames.
 
 ### `[alwayson]`
 
-Hosts defined under this group should indicate that reboots should not be triggered by ansible. 
+Hosts defined under this group are expected to not reboot during regular maintenance jobs. 
 
 Mostly a trust thing. 
 
-Useful for [applying patches and controlling reboots](playbooks/updates.md).
+Useful for [applying patches and controlling reboots](linux-updates.md).

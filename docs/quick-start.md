@@ -55,4 +55,4 @@ You are now ready to run playbooks. Try the following command to validate connec
 
 [^2]: If you don't already have an account for this, one of my playbooks is an example of creating a user account at scale. You could use that playbook and target only your ansible host to create the user.
 
-[^3]: If you're me, you'll use the existing keypair. Conveniently the correct [id_rsa.pub](../resources/.ssh/id_rsa.pub) is already in this repo!
+[^3]: If you're me, you'll use the existing keypair. Conveniently the correct [id_rsa.pub](https://github.com/mfeuhrer/ansible/blob/main/resources/.ssh/id_rsa.pub) is already in this repo!

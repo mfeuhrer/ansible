@@ -23,10 +23,11 @@ nav:
   - Home: README.md
   - Quick Start: quick-start.md
   - Playbooks:
-    - updates: playbooks/updates.md
+    - linux-updates: playbooks/linux-updates.md
     - linux-common: playbooks/linux-common.md
+    - apt-common: playbooks/apt-common.md
     - apt-proxguest: playbooks/apt-proxguest.md
-    - apt-apt-containerhosts: playbooks/apt-containerhosts.md
+    - apt-containerhosts: playbooks/apt-containerhosts.md
   - References:
     - ansible.cfg: ansible.cfg.md
     - Inventory File: inventory.md

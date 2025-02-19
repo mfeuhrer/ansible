@@ -50,5 +50,5 @@
     copy: 
       src: ../resources/.ssh/warpgate.pub 
       dest: /home/warpgate/.ssh/authorized_keys
-      owner: ansible
-      group: ansible
+      owner: warpgate
+      group: warpgate
