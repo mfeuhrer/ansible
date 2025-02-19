@@ -1,4 +1,4 @@
-# Inventory
+# The Inventory
 
 ## Groups
 
@@ -12,15 +12,13 @@ The linux tag is a parent group that contains any valid linux architechtures, or
 
 Playbooks that target this group should only reference common linux tasks, and should not expect any distro-specific software.
 
-This is useful for [tasks like adding users](../playbooks/linux-common.yml). 
+This is useful for [tasks like adding users](playbooks/linux-common.md). 
 
 Currently defined as:
 
-```
-[linux:children]
-apt
-yum
-```
+	[linux:children]
+	apt
+	yum
 
 ### `[apt]`
 
@@ -28,7 +26,7 @@ The apt tag is a group that contains valid Operating Systems that use apt as a p
 
 Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. 
 
-Useful for [installing packages and controlling repositories](../playbooks/apt-common.yml). 
+Useful for [installing packages and controlling repositories](playbooks/apt-common.yml). 
 
 Currently defined as:
 
@@ -45,7 +43,7 @@ This group contains linux virtual machines running on proxmox hosts. There is pr
 
 Playbooks targeting this group can expect a virtual machine (not an lxc) running on a proxmox hypervisor.
 
-Useful for things like [ensuring `qemu-guest-agent` is installed and running](../playbooks/apt-proxguest.yml). 
+Useful for things like [ensuring `qemu-guest-agent` is installed and running](playbooks/apt-proxguest.md). 
 
 
 Currently defined as:
@@ -62,7 +60,7 @@ The containerhosts group contains groups of machines that use common docker comp
 
 Playbooks that target this group should expect a working Docker installation.
 
-Useful for [making sure `docker` components are ready for monitoring](../playbooks/apt-containerhosts.yml).
+Useful for [making sure `docker` components are ready for monitoring](playbooks/apt-containerhosts.md).
 
 Currently defined as:
 
@@ -72,7 +70,9 @@ docker
 kubeservers
 ```
 
-### Specific Distros (`[Debian]`, `[Ubuntu]`, `[ubuntu_lxc]`)
+### Specific Distros 
+
+*ex:`[Debian]`, `[Ubuntu]`, `[ubuntu_lxc]`*
 
 A tag for a specific distribution is a group that contains only hosts running that distribution. 
 
@@ -81,7 +81,9 @@ Playbooks that target a specific distro group should expect the receiving device
 
 These groups are currently populated directly with hostnames.
 
-### Specific Softwares (`[borgbackup]`, `[npm]`, `[docker]`)
+### Specific Softwares
+
+*ex: `[borgbackup]`, `[npm]`, `[docker]`*
 
 Tags for specific software will install and manage that software on any endpoints defined.
 
@@ -95,4 +97,4 @@ Hosts defined under this group should indicate that reboots should not be trigge
 
 Mostly a trust thing. 
 
-Useful for [applying patches and controlling reboots](../playbooks/updates.yml).
+Useful for [applying patches and controlling reboots](playbooks/updates.md).

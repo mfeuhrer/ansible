@@ -1,3 +1,5 @@
 ansible.config
 hosts
 known_hosts
+site/
+.obsidian/
