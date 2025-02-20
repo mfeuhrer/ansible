@@ -752,7 +752,7 @@
 <h3 id="linux"><code>[linux]</code></h3>
 <p>The linux tag is a parent group that contains any valid linux architechtures, organized by package manager. </p>
 <p>Playbooks that target this group should only reference common linux tasks, and should not expect any distro-specific software.</p>
-<p>This is useful for <a href="playbooks/linux-common.md">tasks like adding users</a>. </p>
+<p>This is useful for <a href="../../playbooks/linux-common/">tasks like adding users</a>. </p>
 <p>Currently defined as:</p>
 <pre><code>[linux:children]
 apt
@@ -761,7 +761,7 @@ yum
 <h3 id="apt"><code>[apt]</code></h3>
 <p>The apt tag is a group that contains valid Operating Systems that use apt as a package manager. </p>
 <p>Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. </p>
-<p>Useful for <a href="playbooks/apt-common.md">installing packages and controlling repositories</a>. </p>
+<p>Useful for <a href="../../playbooks/apt-common/">installing packages and controlling repositories</a>. </p>
 <p>Currently defined as:</p>
 <pre><code>[apt:children]
 ubuntu
@@ -771,7 +771,7 @@ ubuntu_lxc
 <h3 id="proxmoxguest"><code>[proxmoxguest]</code></h3>
 <p>This group contains linux virtual machines running on proxmox hosts. There is probably a better way to target these devices however.</p>
 <p>Playbooks targeting this group can expect a virtual machine (not an lxc) running on a proxmox hypervisor.</p>
-<p>Useful for things like <a href="playbooks/apt-proxguest.md">ensuring <code>qemu-guest-agent</code> is installed and running</a>. </p>
+<p>Useful for things like <a href="../../playbooks/apt-proxguest/">ensuring <code>qemu-guest-agent</code> is installed and running</a>. </p>
 <p>Currently defined as:</p>
 <pre><code>[proxmoxguest:children]
 mox
@@ -780,7 +780,7 @@ kubeservers
 <h3 id="containerhosts"><code>[containerhosts]</code></h3>
 <p>The containerhosts group contains groups of machines that use common docker components. </p>
 <p>Playbooks that target this group should expect a working Docker installation.</p>
-<p>Useful for <a href="playbooks/apt-containerhosts.md">making sure <code>docker</code> components are ready for monitoring</a>.</p>
+<p>Useful for <a href="../../playbooks/apt-containerhosts/">making sure <code>docker</code> components are ready for monitoring</a>.</p>
 <p>Currently defined as:</p>
 <pre><code>[containerhosts:children]
 docker
@@ -800,7 +800,7 @@ kubeservers
 <h3 id="alwayson"><code>[alwayson]</code></h3>
 <p>Hosts defined under this group are expected to not reboot during regular maintenance jobs. </p>
 <p>Mostly a trust thing. </p>
-<p>Useful for <a href="linux-updates.md">applying patches and controlling reboots</a>.</p>
+<p>Useful for <a href="../../playbooks/linux-updates/">applying patches and controlling reboots</a>.</p>
 
 
 
