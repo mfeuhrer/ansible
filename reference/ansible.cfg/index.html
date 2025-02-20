@@ -510,6 +510,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Customizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_user
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      inventory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -607,6 +631,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Customizations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      remote_user
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      inventory
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -661,17 +709,21 @@
 <p>Nothing too complicated here. Example config found <a href="https://github.com/mfeuhrer/ansible/blob/main/resources/ansible/ansible.cfg">here</a>.
 You&rsquo;ll want to make sure this file is in your ansible user&rsquo;s home directory.</p>
 <h2 id="customizations">Customizations</h2>
-<p>If you use a different username for ansible, change this line:</p>
+<h3 id="remote_user">remote_user</h3>
+<p>This directive tells ansible what username to use when accessing a remote machine. </p>
+<p>If you want to use a different username, change this value.</p>
 <pre><code>remote_user = ansible
 </code></pre>
-<p>Modify this line to change where your inventory file can be found:</p>
+<h3 id="inventory">inventory</h3>
+<p>This directive tells ansible which file to use as the default inventory.</p>
 <pre><code>inventory = $HOME/hosts
 </code></pre>
 <h2 id="options">Options</h2>
 <h3 id="python-interpreter">python interpreter</h3>
+<p>By default, ansible will autodetect the in-user versions of python on managed devices. If no version is specified for use, ansible will throw a warning in the logs that the interpreter on the endpoint may change between runs. I don&rsquo;t care for the clutter in my logs. </p>
 <pre><code>interpreter_python = auto_silent
 </code></pre>
-<p>By default, ansible will autodetect the in-user versions of python on managed devices. If no version is specified for use, ansible will throw a warning in the logs that the interpreter on the endpoint may change between runs. I don&rsquo;t care for the clutter in my logs. </p>
+<p>auto_silent tells ansible to suppress the warning and accept the default behavior.</p>
 
 
 
