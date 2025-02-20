@@ -9,23 +9,25 @@
       
       
       
-        <link rel="prev" href="../ansible.cfg/">
+        <link rel="prev" href="../../playbooks/apt-containerhosts/">
       
       
+        <link rel="next" href="../inventory/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.4">
     
     
       
-        <title>Inventory File - Mason's Ansible Docs</title>
+        <title>ansible.cfg - Mason's Ansible Docs</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +46,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-inventory" class="md-skip">
+        <a href="#ansible-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -84,7 +86,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Mason&#39;s Ansible Docs" class="md-header__button md-logo" aria-label="Mason's Ansible Docs" data-md-component="logo">
+    <a href="../.." title="Mason&#39;s Ansible Docs" class="md-header__button md-logo" aria-label="Mason's Ansible Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -104,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inventory File
+              ansible.cfg
             
           </span>
         </div>
@@ -191,7 +193,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Mason&#39;s Ansible Docs" class="md-nav__button md-logo" aria-label="Mason's Ansible Docs" data-md-component="logo">
+    <a href="../.." title="Mason&#39;s Ansible Docs" class="md-nav__button md-logo" aria-label="Mason's Ansible Docs" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -221,7 +223,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -242,7 +244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quick-start/" class="md-nav__link">
+      <a href="../../quick-start/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -299,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../playbooks/linux-updates/" class="md-nav__link">
+      <a href="../../playbooks/linux-updates/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -321,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../playbooks/linux-common/" class="md-nav__link">
+      <a href="../../playbooks/linux-common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -343,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../playbooks/apt-common/" class="md-nav__link">
+      <a href="../../playbooks/apt-common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -365,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../playbooks/apt-proxguest/" class="md-nav__link">
+      <a href="../../playbooks/apt-proxguest/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -387,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../playbooks/apt-containerhosts/" class="md-nav__link">
+      <a href="../../playbooks/apt-containerhosts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -451,28 +453,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../ansible.cfg/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ansible.cfg
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -489,7 +469,7 @@
           
   
   <span class="md-ellipsis">
-    Inventory File
+    ansible.cfg
     
   </span>
   
@@ -501,7 +481,7 @@
         
   
   <span class="md-ellipsis">
-    Inventory File
+    ansible.cfg
     
   </span>
   
@@ -524,73 +504,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#groups" class="md-nav__link">
+  <a href="#customizations" class="md-nav__link">
     <span class="md-ellipsis">
-      Groups
+      Customizations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Groups">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
+  <a href="#python-interpreter" class="md-nav__link">
     <span class="md-ellipsis">
-      [linux]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    <span class="md-ellipsis">
-      [apt]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxmoxguest" class="md-nav__link">
-    <span class="md-ellipsis">
-      [proxmoxguest]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerhosts" class="md-nav__link">
-    <span class="md-ellipsis">
-      [containerhosts]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-distros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Distros
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-softwares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Softwares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alwayson" class="md-nav__link">
-    <span class="md-ellipsis">
-      [alwayson]
+      python interpreter
     </span>
   </a>
   
@@ -605,6 +540,28 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inventory File
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -644,73 +601,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#groups" class="md-nav__link">
+  <a href="#customizations" class="md-nav__link">
     <span class="md-ellipsis">
-      Groups
+      Customizations
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Groups">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Options">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
+  <a href="#python-interpreter" class="md-nav__link">
     <span class="md-ellipsis">
-      [linux]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    <span class="md-ellipsis">
-      [apt]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxmoxguest" class="md-nav__link">
-    <span class="md-ellipsis">
-      [proxmoxguest]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerhosts" class="md-nav__link">
-    <span class="md-ellipsis">
-      [containerhosts]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-distros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Distros
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-softwares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Softwares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alwayson" class="md-nav__link">
-    <span class="md-ellipsis">
-      [alwayson]
+      python interpreter
     </span>
   </a>
   
@@ -737,7 +649,7 @@
 
 
   
-    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/inventory.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/reference/ansible.cfg.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -745,62 +657,21 @@
   
 
 
-<h1 id="the-inventory">The Inventory</h1>
-<h2 id="groups">Groups</h2>
-<p>In my playbooks, I try to target groups over individual hosts. This helps keep the playbooks flexible and scalable. </p>
-<p>This section aims to specify what groups I work with, and what the intent behind them is.</p>
-<h3 id="linux"><code>[linux]</code></h3>
-<p>The linux tag is a parent group that contains any valid linux architechtures, organized by package manager. </p>
-<p>Playbooks that target this group should only reference common linux tasks, and should not expect any distro-specific software.</p>
-<p>This is useful for <a href="../playbooks/linux-common/">tasks like adding users</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[linux:children]
-apt
-yum
+<h1 id="ansible-configuration">Ansible Configuration</h1>
+<p>Nothing too complicated here. Example config found <a href="https://github.com/mfeuhrer/ansible/blob/main/resources/ansible/ansible.cfg">here</a>.
+You&rsquo;ll want to make sure this file is in your ansible user&rsquo;s home directory.</p>
+<h2 id="customizations">Customizations</h2>
+<p>If you use a different username for ansible, change this line:</p>
+<pre><code>remote_user = ansible
 </code></pre>
-<h3 id="apt"><code>[apt]</code></h3>
-<p>The apt tag is a group that contains valid Operating Systems that use apt as a package manager. </p>
-<p>Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. </p>
-<p>Useful for <a href="../playbooks/apt-common/">installing packages and controlling repositories</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[apt:children]
-ubuntu
-debian
-ubuntu_lxc
+<p>Modify this line to change where your inventory file can be found:</p>
+<pre><code>inventory = $HOME/hosts
 </code></pre>
-<h3 id="proxmoxguest"><code>[proxmoxguest]</code></h3>
-<p>This group contains linux virtual machines running on proxmox hosts. There is probably a better way to target these devices however.</p>
-<p>Playbooks targeting this group can expect a virtual machine (not an lxc) running on a proxmox hypervisor.</p>
-<p>Useful for things like <a href="../playbooks/apt-proxguest/">ensuring <code>qemu-guest-agent</code> is installed and running</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[proxmoxguest:children]
-mox
-kubeservers
+<h2 id="options">Options</h2>
+<h3 id="python-interpreter">python interpreter</h3>
+<pre><code>interpreter_python = auto_silent
 </code></pre>
-<h3 id="containerhosts"><code>[containerhosts]</code></h3>
-<p>The containerhosts group contains groups of machines that use common docker components. </p>
-<p>Playbooks that target this group should expect a working Docker installation.</p>
-<p>Useful for <a href="../playbooks/apt-containerhosts/">making sure <code>docker</code> components are ready for monitoring</a>.</p>
-<p>Currently defined as:</p>
-<pre><code>[containerhosts:children]
-docker
-kubeservers
-</code></pre>
-<h3 id="specific-distros">Specific Distros</h3>
-<p><em>ex:<code>[Debian]</code>, <code>[Ubuntu]</code>, <code>[ubuntu_lxc]</code></em></p>
-<p>A tag for a specific distribution is a group that contains only hosts running that distribution. </p>
-<p>Playbooks that target a specific distro group should expect the receiving device to be running that flavor of linux. 
-<em>e.g.</em> referencing the <code>ubuntu</code> group should result in a list that contains <em>only</em> Ubuntu devices.</p>
-<p>These groups are currently populated directly with hostnames.</p>
-<h3 id="specific-softwares">Specific Softwares</h3>
-<p><em>ex: <code>[borgbackup]</code>, <code>[npm]</code>, <code>[docker]</code></em></p>
-<p>Tags for specific software will install and manage that software on any endpoints defined.</p>
-<p>Playbooks that target these groups should expect the software to be installed (or should be doing the installing).</p>
-<p>These groups are currently populated directly with hostnames.</p>
-<h3 id="alwayson"><code>[alwayson]</code></h3>
-<p>Hosts defined under this group are expected to not reboot during regular maintenance jobs. </p>
-<p>Mostly a trust thing. </p>
-<p>Useful for <a href="linux-updates.md">applying patches and controlling reboots</a>.</p>
+<p>By default, ansible will autodetect the in-user versions of python on managed devices. If no version is specified for use, ansible will throw a warning in the logs that the interpreter on the endpoint may change between runs. I don&rsquo;t care for the clutter in my logs. </p>
 
 
 
@@ -847,10 +718,10 @@ kubeservers
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
       
     
   </body>

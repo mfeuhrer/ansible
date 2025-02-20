@@ -558,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ansible.cfg/" class="md-nav__link">
+      <a href="../reference/ansible.cfg/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -580,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inventory/" class="md-nav__link">
+      <a href="../reference/inventory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -734,15 +734,15 @@ git clone https://github.com/mfeuhrer/ansible.git
 <p>if you don&rsquo;t already have one.<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></p>
 <pre><code>ssh-keygen
 </code></pre>
-<p>Copy it to the resources folder:</p>
-<pre><code>cp ~/.ssh/id_rsa.pub ~/ansible/resources/.ssh/id_rsa.pub
+<p>Copy it to <code>authorized_keys</code> in the resources directory:</p>
+<pre><code>echo ~/.ssh/id_rsa.pub &gt; ~/ansible/resources/.ssh/authorized_keys
 </code></pre>
-<h2 id="create-an-inventory-file">Create an <a href="../inventory/">inventory file</a></h2>
+<h2 id="create-an-inventory-file">Create an <a href="inventory.md">inventory file</a></h2>
 <p>using the supported tags found in the docs folder.</p>
 <pre><code>nano ~/hosts
 </code></pre>
 <h2 id="ansiblecfg">Ansible.cfg</h2>
-<p>Copy (or simlink) <a href="../ansible.cfg/">ansible.cfg</a> from the resources folder to your ansible user&rsquo;s home folder.</p>
+<p>Copy (or simlink) <a href="ansible.cfg.md">ansible.cfg</a> from the resources folder to your ansible user&rsquo;s home folder.</p>
 <pre><code>cp ~/ansible/resources/ansible/ansible.cfg ~/ansible.cfg
 </code></pre>
 <p>or</p>
@@ -762,7 +762,7 @@ git clone https://github.com/mfeuhrer/ansible.git
 <p>If you don&rsquo;t already have an account for this, one of my playbooks is an example of creating a user account at scale. You could use that playbook and target only your ansible host to create the user.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:3">
-<p>If you&rsquo;re me, you&rsquo;ll use the existing keypair. Conveniently the correct <a href="https://github.com/mfeuhrer/ansible/blob/main/resources/.ssh/id_rsa.pub">id_rsa.pub</a> is already in this repo!&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>If you&rsquo;re me, you&rsquo;ll use the existing keypair. Conveniently the correct <a href="https://github.com/mfeuhrer/ansible/blob/main/resources/.ssh/authorized_keys">authorized_keys</a> is already in this repo!&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
