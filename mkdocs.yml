@@ -48,5 +48,5 @@ nav:
     - apt-proxguest: playbooks/apt-proxguest.md
     - apt-containerhosts: playbooks/apt-containerhosts.md
   - References:
-    - ansible.cfg: ansible.cfg.md
-    - Inventory File: inventory.md
+    - ansible.cfg: reference/ansible.cfg.md
+    - Inventory File: reference/inventory.md

@@ -12,3 +12,10 @@ If you use a different username for ansible, change this line:
 Modify this line to change where your inventory file can be found:
 
 	inventory = $HOME/hosts
+## Options
+
+### python interpreter
+
+	interpreter_python = auto_silent
+
+By default, ansible will autodetect the in-user versions of python on managed devices. If no version is specified for use, ansible will throw a warning in the logs that the interpreter on the endpoint may change between runs. I don't care for the clutter in my logs. 
