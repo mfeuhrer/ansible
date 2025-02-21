@@ -30,13 +30,13 @@ if you don't already have one.[^3]
 
 	echo ~/.ssh/id_rsa.pub > ~/ansible/resources/.ssh/authorized_keys
 
-## Create an [inventory file](reference/inventory.md)
+## Create an [inventory file](resources/inventory.md)
 using the supported tags found in the docs folder.
 
 	nano ~/hosts
 
 ## Ansible.cfg
-Copy (or simlink) [ansible.cfg](reference/ansible.cfg.md) from the resources folder to your ansible user's home folder.
+Copy (or simlink) [ansible.cfg](resources/ansible.cfg.md) from the resources folder to your ansible user's home folder.
 
 	cp ~/ansible/resources/ansible/ansible.cfg ~/ansible.cfg
 

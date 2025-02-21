@@ -1,5 +1,7 @@
 # Configuration for apt based container hosts
 
+This playbook is meant to be run against machines expected to be running docker applications.
+
 ## Quick run
 
 	ansible-playbook ansible/playbooks/apt-containerhosts.yml

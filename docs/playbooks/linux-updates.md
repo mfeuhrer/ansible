@@ -13,4 +13,4 @@ This playbook targets both apt and yum based distributions.
 - Run package manager autoremove
 - Reboot endpoints[^1]
 
-[^1]: If any of the updates require a reboot, the endpoint will reboot, unless the host belongs to the [inventory group](../reference/inventory.md#alwayson) `always on`.
+[^1]: If any of the updates require a reboot, the endpoint will reboot, unless the host belongs to the [inventory group](../resources/inventory.md#alwayson) `always on`.
