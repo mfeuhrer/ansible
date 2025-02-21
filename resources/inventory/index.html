@@ -9,10 +9,8 @@
       
       
       
-        <link rel="prev" href="../../playbooks/apt-containerhosts/">
+        <link rel="prev" href="../ansible.cfg/">
       
-      
-        <link rel="next" href="../inventory/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +18,7 @@
     
     
       
-        <title>ansible.cfg - Mason's Ansible Docs</title>
+        <title>Inventory File - Mason's Ansible Docs</title>
       
     
     
@@ -70,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ansible-configuration" class="md-skip">
+        <a href="#the-inventory" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ansible.cfg
+              Inventory File
             
           </span>
         </div>
@@ -434,7 +432,7 @@
             
   
   <span class="md-ellipsis">
-    References
+    Resources
     
   </span>
   
@@ -445,9 +443,31 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            References
+            Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ansible.cfg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ansible.cfg
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -469,7 +489,7 @@
           
   
   <span class="md-ellipsis">
-    ansible.cfg
+    Inventory File
     
   </span>
   
@@ -481,7 +501,7 @@
         
   
   <span class="md-ellipsis">
-    ansible.cfg
+    Inventory File
     
   </span>
   
@@ -504,52 +524,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#customizations" class="md-nav__link">
+  <a href="#groups" class="md-nav__link">
     <span class="md-ellipsis">
-      Customizations
+      Groups
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Customizations">
+    <nav class="md-nav" aria-label="Groups">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#remote_user" class="md-nav__link">
+  <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
-      remote_user
+      [linux]
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#inventory" class="md-nav__link">
+  <a href="#apt" class="md-nav__link">
     <span class="md-ellipsis">
-      inventory
+      [apt]
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Options
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#python-interpreter" class="md-nav__link">
+  <a href="#proxmoxguest" class="md-nav__link">
     <span class="md-ellipsis">
-      python interpreter
+      [proxmoxguest]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containerhosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      [containerhosts]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-distros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Distros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-softwares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Softwares
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alwayson" class="md-nav__link">
+    <span class="md-ellipsis">
+      [alwayson]
     </span>
   </a>
   
@@ -564,28 +605,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../inventory/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Inventory File
-    
-  </span>
-  
-
-      </a>
     </li>
   
 
@@ -625,52 +644,73 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#customizations" class="md-nav__link">
+  <a href="#groups" class="md-nav__link">
     <span class="md-ellipsis">
-      Customizations
+      Groups
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Customizations">
+    <nav class="md-nav" aria-label="Groups">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#remote_user" class="md-nav__link">
+  <a href="#linux" class="md-nav__link">
     <span class="md-ellipsis">
-      remote_user
+      [linux]
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#inventory" class="md-nav__link">
+  <a href="#apt" class="md-nav__link">
     <span class="md-ellipsis">
-      inventory
+      [apt]
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Options
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Options">
-      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#python-interpreter" class="md-nav__link">
+  <a href="#proxmoxguest" class="md-nav__link">
     <span class="md-ellipsis">
-      python interpreter
+      [proxmoxguest]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#containerhosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      [containerhosts]
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-distros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Distros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specific-softwares" class="md-nav__link">
+    <span class="md-ellipsis">
+      Specific Softwares
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alwayson" class="md-nav__link">
+    <span class="md-ellipsis">
+      [alwayson]
     </span>
   </a>
   
@@ -697,7 +737,7 @@
 
 
   
-    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/reference/ansible.cfg.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/resources/inventory.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -705,25 +745,62 @@
   
 
 
-<h1 id="ansible-configuration">Ansible Configuration</h1>
-<p>Nothing too complicated here. Example config found <a href="https://github.com/mfeuhrer/ansible/blob/main/resources/ansible/ansible.cfg">here</a>.
-You&rsquo;ll want to make sure this file is in your ansible user&rsquo;s home directory.</p>
-<h2 id="customizations">Customizations</h2>
-<h3 id="remote_user">remote_user</h3>
-<p>This directive tells ansible what username to use when accessing a remote machine. </p>
-<p>If you want to use a different username, change this value.</p>
-<pre><code>remote_user = ansible
+<h1 id="the-inventory">The Inventory</h1>
+<h2 id="groups">Groups</h2>
+<p>In my playbooks, I try to target groups over individual hosts. This helps keep the playbooks flexible and scalable. </p>
+<p>This section aims to specify what groups I work with, and what the intent behind them is.</p>
+<h3 id="linux"><code>[linux]</code></h3>
+<p>The linux tag is a parent group that contains any valid linux architechtures, organized by package manager. </p>
+<p>Playbooks that target this group should only reference common linux tasks, and should not expect any distro-specific software.</p>
+<p>This is useful for <a href="../../playbooks/linux-common/">tasks like adding users</a>. </p>
+<p>Currently defined as:</p>
+<pre><code>[linux:children]
+apt
+yum
 </code></pre>
-<h3 id="inventory">inventory</h3>
-<p>This directive tells ansible which file to use as the default inventory.</p>
-<pre><code>inventory = $HOME/hosts
+<h3 id="apt"><code>[apt]</code></h3>
+<p>The apt tag is a group that contains valid Operating Systems that use apt as a package manager. </p>
+<p>Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. </p>
+<p>Useful for <a href="../../playbooks/apt-common/">installing packages and controlling repositories</a>. </p>
+<p>Currently defined as:</p>
+<pre><code>[apt:children]
+ubuntu
+debian
+ubuntu_lxc
 </code></pre>
-<h2 id="options">Options</h2>
-<h3 id="python-interpreter">python interpreter</h3>
-<p>By default, ansible will autodetect the in-user versions of python on managed devices. If no version is specified for use, ansible will throw a warning in the logs that the interpreter on the endpoint may change between runs. I don&rsquo;t care for the clutter in my logs. </p>
-<pre><code>interpreter_python = auto_silent
+<h3 id="proxmoxguest"><code>[proxmoxguest]</code></h3>
+<p>This group contains linux virtual machines running on proxmox hosts. There is probably a better way to target these devices however.</p>
+<p>Playbooks targeting this group can expect a virtual machine (not an lxc) running on a proxmox hypervisor.</p>
+<p>Useful for things like <a href="../../playbooks/apt-proxguest/">ensuring <code>qemu-guest-agent</code> is installed and running</a>. </p>
+<p>Currently defined as:</p>
+<pre><code>[proxmoxguest:children]
+mox
+kubeservers
 </code></pre>
-<p>auto_silent tells ansible to suppress the warning and accept the default behavior.</p>
+<h3 id="containerhosts"><code>[containerhosts]</code></h3>
+<p>The containerhosts group contains groups of machines that use common docker components. </p>
+<p>Playbooks that target this group should expect a working Docker installation.</p>
+<p>Useful for <a href="../../playbooks/apt-containerhosts/">making sure <code>docker</code> components are ready for monitoring</a>.</p>
+<p>Currently defined as:</p>
+<pre><code>[containerhosts:children]
+docker
+kubeservers
+</code></pre>
+<h3 id="specific-distros">Specific Distros</h3>
+<p><em>ex:<code>[Debian]</code>, <code>[Ubuntu]</code>, <code>[ubuntu_lxc]</code></em></p>
+<p>A tag for a specific distribution is a group that contains only hosts running that distribution. </p>
+<p>Playbooks that target a specific distro group should expect the receiving device to be running that flavor of linux. 
+<em>e.g.</em> referencing the <code>ubuntu</code> group should result in a list that contains <em>only</em> Ubuntu devices.</p>
+<p>These groups are currently populated directly with hostnames.</p>
+<h3 id="specific-softwares">Specific Softwares</h3>
+<p><em>ex: <code>[borgbackup]</code>, <code>[npm]</code>, <code>[docker]</code></em></p>
+<p>Tags for specific software will install and manage that software on any endpoints defined.</p>
+<p>Playbooks that target these groups should expect the software to be installed (or should be doing the installing).</p>
+<p>These groups are currently populated directly with hostnames.</p>
+<h3 id="alwayson"><code>[alwayson]</code></h3>
+<p>Hosts defined under this group are expected to not reboot during regular maintenance jobs. </p>
+<p>Mostly a trust thing. </p>
+<p>Useful for <a href="../../playbooks/linux-updates/">applying patches and controlling reboots</a>.</p>
 
 
 

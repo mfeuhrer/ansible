@@ -9,8 +9,6 @@
       
       
       
-        <link rel="prev" href="../ansible.cfg/">
-      
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +16,7 @@
     
     
       
-        <title>Inventory File - Mason's Ansible Docs</title>
+        <title>Ansible galaxy - Mason's Ansible Docs</title>
       
     
     
@@ -68,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-inventory" class="md-skip">
+        <a href="#ansible-galaxy" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inventory File
+              Ansible galaxy
             
           </span>
         </div>
@@ -413,26 +411,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    References
+    Resources
     
   </span>
   
@@ -440,10 +436,10 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            References
+            Resources
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -473,31 +469,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Inventory File
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../inventory/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -507,104 +482,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#groups" class="md-nav__link">
-    <span class="md-ellipsis">
-      Groups
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Groups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      [linux]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    <span class="md-ellipsis">
-      [apt]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxmoxguest" class="md-nav__link">
-    <span class="md-ellipsis">
-      [proxmoxguest]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerhosts" class="md-nav__link">
-    <span class="md-ellipsis">
-      [containerhosts]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-distros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Distros
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-softwares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Softwares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alwayson" class="md-nav__link">
-    <span class="md-ellipsis">
-      [alwayson]
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -634,8 +511,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -644,73 +519,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#groups" class="md-nav__link">
+  <a href="#ansible-galaxy" class="md-nav__link">
     <span class="md-ellipsis">
-      Groups
+      Ansible Galaxy
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Groups">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Collections in use:
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collections in use:">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
+  <a href="#borgbase" class="md-nav__link">
     <span class="md-ellipsis">
-      [linux]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#apt" class="md-nav__link">
-    <span class="md-ellipsis">
-      [apt]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#proxmoxguest" class="md-nav__link">
-    <span class="md-ellipsis">
-      [proxmoxguest]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#containerhosts" class="md-nav__link">
-    <span class="md-ellipsis">
-      [containerhosts]
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-distros" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Distros
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#specific-softwares" class="md-nav__link">
-    <span class="md-ellipsis">
-      Specific Softwares
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#alwayson" class="md-nav__link">
-    <span class="md-ellipsis">
-      [alwayson]
+      borgbase
     </span>
   </a>
   
@@ -737,7 +567,7 @@
 
 
   
-    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/reference/inventory.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/mfeuhrer/ansible/blob/main/docs/resources/ansible-galaxy.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -745,62 +575,21 @@
   
 
 
-<h1 id="the-inventory">The Inventory</h1>
-<h2 id="groups">Groups</h2>
-<p>In my playbooks, I try to target groups over individual hosts. This helps keep the playbooks flexible and scalable. </p>
-<p>This section aims to specify what groups I work with, and what the intent behind them is.</p>
-<h3 id="linux"><code>[linux]</code></h3>
-<p>The linux tag is a parent group that contains any valid linux architechtures, organized by package manager. </p>
-<p>Playbooks that target this group should only reference common linux tasks, and should not expect any distro-specific software.</p>
-<p>This is useful for <a href="../../playbooks/linux-common/">tasks like adding users</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[linux:children]
-apt
-yum
+  <h1>Ansible galaxy</h1>
+
+<h2 id="ansible-galaxy">Ansible Galaxy</h2>
+<p>Ansible supports externally and community maintained collections, which can be pre-defined playbooks, roles, modules or plugins. <code>ansible-galaxy</code> is the command used to control these. </p>
+<p>If a collection is required by a playbook, ensure the collection is installed by running:</p>
+<pre><code>ansible-galaxy collection install $collectionName
 </code></pre>
-<h3 id="apt"><code>[apt]</code></h3>
-<p>The apt tag is a group that contains valid Operating Systems that use apt as a package manager. </p>
-<p>Playbooks that target this group should expect common apt functions, runtimes, and commands to be available. </p>
-<p>Useful for <a href="../../playbooks/apt-common/">installing packages and controlling repositories</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[apt:children]
-ubuntu
-debian
-ubuntu_lxc
+<p>To review what collections exist on your system, as well as those available within the universe, run:</p>
+<pre><code>ansible-galaxy collection list
 </code></pre>
-<h3 id="proxmoxguest"><code>[proxmoxguest]</code></h3>
-<p>This group contains linux virtual machines running on proxmox hosts. There is probably a better way to target these devices however.</p>
-<p>Playbooks targeting this group can expect a virtual machine (not an lxc) running on a proxmox hypervisor.</p>
-<p>Useful for things like <a href="../../playbooks/apt-proxguest/">ensuring <code>qemu-guest-agent</code> is installed and running</a>. </p>
-<p>Currently defined as:</p>
-<pre><code>[proxmoxguest:children]
-mox
-kubeservers
+<h2 id="collections-in-use">Collections in use:</h2>
+<h3 id="borgbase">borgbase</h3>
+<p>borgbase is a management layer on top of borg backup that makes using borg backup easier to use. Install with:</p>
+<pre><code>ansible-galaxy collection install borgbase
 </code></pre>
-<h3 id="containerhosts"><code>[containerhosts]</code></h3>
-<p>The containerhosts group contains groups of machines that use common docker components. </p>
-<p>Playbooks that target this group should expect a working Docker installation.</p>
-<p>Useful for <a href="../../playbooks/apt-containerhosts/">making sure <code>docker</code> components are ready for monitoring</a>.</p>
-<p>Currently defined as:</p>
-<pre><code>[containerhosts:children]
-docker
-kubeservers
-</code></pre>
-<h3 id="specific-distros">Specific Distros</h3>
-<p><em>ex:<code>[Debian]</code>, <code>[Ubuntu]</code>, <code>[ubuntu_lxc]</code></em></p>
-<p>A tag for a specific distribution is a group that contains only hosts running that distribution. </p>
-<p>Playbooks that target a specific distro group should expect the receiving device to be running that flavor of linux. 
-<em>e.g.</em> referencing the <code>ubuntu</code> group should result in a list that contains <em>only</em> Ubuntu devices.</p>
-<p>These groups are currently populated directly with hostnames.</p>
-<h3 id="specific-softwares">Specific Softwares</h3>
-<p><em>ex: <code>[borgbackup]</code>, <code>[npm]</code>, <code>[docker]</code></em></p>
-<p>Tags for specific software will install and manage that software on any endpoints defined.</p>
-<p>Playbooks that target these groups should expect the software to be installed (or should be doing the installing).</p>
-<p>These groups are currently populated directly with hostnames.</p>
-<h3 id="alwayson"><code>[alwayson]</code></h3>
-<p>Hosts defined under this group are expected to not reboot during regular maintenance jobs. </p>
-<p>Mostly a trust thing. </p>
-<p>Useful for <a href="../../playbooks/linux-updates/">applying patches and controlling reboots</a>.</p>
 
 
 
