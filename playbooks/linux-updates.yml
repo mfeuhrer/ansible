@@ -58,6 +58,14 @@
       post_reboot_delay: 60
     when: apt_update_status.changed
 
+- hosts: ufw-docker
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Open firewall ports for docker
+    ansible.builtin.script: ../resources/scripts/ufw-docker/{{ inventory_hostname }}.sh
+    
 - hosts: alwayson:!yum
   become: yes
   tasks:
