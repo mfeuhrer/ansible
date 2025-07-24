@@ -58,7 +58,7 @@
       post_reboot_delay: 60
     when: apt_update_status.changed
 
-- hosts: ufw-docker
+- hosts: ufwdocker
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name

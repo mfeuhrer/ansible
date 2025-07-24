@@ -1,4 +1,4 @@
-- hosts: ans01.omicr0n.com
+- hosts: all
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
