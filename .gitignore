@@ -1,5 +1,7 @@
 ansible.config
 hosts
+newhosts
 known_hosts
 site/
 .obsidian/
+id_rsa

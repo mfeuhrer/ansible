@@ -1,0 +1,8 @@
+- hosts: linux:!lxc
+  become: yes
+  vars:
+    hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
+  tasks:
+  - name: Register to Checkmk Server
+    ansible.builtin.shell:
+      cmd: cmk-agent-ctl register --trust-cert --server omd.omicr0n.com --hostname {{ inventory_hostname }} --site omicr0n --user reg_user --password {{ lookup('env', 'omd_reg_user') }}
