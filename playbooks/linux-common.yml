@@ -1,5 +1,5 @@
 # a lot of it came from here: https://pastebin.com/rPiqt8q6
-- hosts: linux
+- hosts: linux:!proxmox
   become: yes
   vars:
     hostname: "{{ inventory_hostname }}" # Hostname from Ansible inventory name
