@@ -38,6 +38,7 @@
       groups: users
       append: true
       create_home: true
+      shell: /bin/bash
       comment: "Warpgate Jump User"
       expires: -1
   - name: Create Warpgate SSH Key Directory
