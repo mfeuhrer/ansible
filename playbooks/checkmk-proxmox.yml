@@ -4,7 +4,7 @@
   tasks:
   - name: Install Checkmk Agent
     apt:
-      deb: https://omd.omicr0n.com/omicr0n/check_mk/agents/check-mk-agent_2.4.0p12-1_all.deb
+      deb: https://omd.omicr0n.com/omicr0n/check_mk/agents/check-mk-agent_2.4.0p30-1_all.deb
   - name: Apt Update Plugin
     get_url:
         url: https://omd.omicr0n.com/omicr0n/check_mk/agents/plugins/mk_apt
